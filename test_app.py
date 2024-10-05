@@ -12,3 +12,9 @@ def test_home(client):
     response = client.get('/')  
     assert response.status_code == 200  
     assert response.data == b'Welcome to Home!'  
+
+def test_profile(client):
+    """Test the profile  route."""
+    response = client.get('/profile')  
+    assert response.status_code == 200  
+    assert response.data == b'This is my profile page' 
