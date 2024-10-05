@@ -38,18 +38,9 @@ jobs:
       run: |
         pytest
 
-    - name: Notify on Success
+    - name: Notify success
       if: success()
-      uses: dawidd6/action-send-mail@v3
-      with:
-        server_address: smtp.gmail.com  # Your email service's SMTP server
-        server_port: 587                 # Common SMTP port
-        username: ${{ secrets.EMAIL_USERNAME }}
-        password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: Build Succeeded
-        body: "The build was successful!"
-        to: your-email@example.com  # Replace with your email
-        from: ${{ secrets.EMAIL_USERNAME }}
+      run: echo "All tests passed!"
 
     - name: Notify failure
       if: failure()
