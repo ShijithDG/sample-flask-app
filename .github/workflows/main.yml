@@ -38,9 +38,18 @@ jobs:
       run: |
         pytest
 
-    - name: Notify success
+    - name: Notify on Success
       if: success()
-      run: echo "All tests passed!"
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.datagrokr.com  
+        server_port: 587                
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: Build Succeeded
+        body: "The build was successful!"
+        to: shijith.pk@datagrokr.com  
+        from: ${{ secrets.EMAIL_USERNAME }}
 
     - name: Notify failure
       if: failure()
