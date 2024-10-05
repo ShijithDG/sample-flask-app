@@ -42,24 +42,15 @@ jobs:
       if: success()
       uses: dawidd6/action-send-mail@v3
       with:
-        server_address: smtp.gmail.com
-        server_port: 587
+        server_address: smtp.gmail.com  # Your email service's SMTP server
+        server_port: 587                 # Common SMTP port
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
         subject: Build Succeeded
         body: "The build was successful!"
-        to: shijith.thalassery@gmail.com
+        to: your-email@example.com  # Replace with your email
         from: ${{ secrets.EMAIL_USERNAME }}
 
-    - name: Notify on Failure
+    - name: Notify failure
       if: failure()
-      uses: dawidd6/action-send-mail@v3
-      with:
-        server_address: smtp.gmail.com
-        server_port: 587
-        username: ${{ secrets.EMAIL_USERNAME }}
-        password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: Build Failed
-        body: "The build has failed!"
-        to: shijith.thalassery@gmail.com
-        from: ${{ secrets.EMAIL_USERNAME }}
+      run: echo "Tests failed!"
