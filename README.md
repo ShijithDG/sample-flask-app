@@ -38,6 +38,16 @@ The GitHub Actions workflow is saved inside 'github/workflows/main.yml' file. Th
 Trigger Events
    - The workflow is triggered on every 'push'  event for the 'main' branch.
 
+challenges faced
+   - creating yml file for this application and folder and the 
+      - structure of yml
+      - set up dependencies
+      - turn of success notification
+
+   solution 
+      - using blog to understand the basics of yml file and folder structure
+      - youtube for creating almost working yml later used chat gpt for correct that code
+      - issue related to notication is resolved by reading the notification related document provided by git hub 
 
 
 
